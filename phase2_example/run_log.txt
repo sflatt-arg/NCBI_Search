@@ -1,0 +1,43 @@
+Phase 1: searching PubMed for: 'organoid AND breast cancer' (prefilter=on)
+  search term: (organoid AND breast cancer) AND ("Fluorescent Antibody Technique"[MeSH Terms] OR immunofluorescence[tiab])
+  PubMed hits: 41 (truncated by --retmax)
+  articles carried into Phase 2: 5
+Phase 2: linking to PMC and inspecting figure captions...
+
+=== Parameters ===
+  keywords            : 'organoid AND breast cancer'
+  IF prefilter        : on
+  retmax              : 5
+  elink chunk size    : 200
+  efetch chunk size   : 100
+  output CSV          : ./phase2_example/results.csv
+  NCBI tool           : pubmed-if-filter
+  NCBI email          : flattsolange@gmail.com
+  NCBI api key        : provided
+  rate limit          : 10.0 req/s
+
+=== Step 0-1: Phase 1 - PubMed ESearch ===
+  search term              : (organoid AND breast cancer) AND ("Fluorescent Antibody Technique"[MeSH Terms] OR immunofluorescence[tiab])
+  PubMed hits (Count)      : 41
+  PMIDs retrieved (retmax) : 5 (12.2% of hits) [TRUNCATED by --retmax]
+
+=== Step 2: ELink pubmed->pmc (base: 5 PMIDs) ===
+  linked to a PMCID   : 1 (20.0%)
+  not in PMC          : 4 (80.0%)  -> uninspectable
+
+=== Step 3: EFetch PMC full text (base: 1 linked PMCIDs) ===
+  full text fetched       : 1 (100.0%)
+  access-restricted/failed: 0 (0.0%)  -> uninspectable
+
+=== Step 4: Caption keyword match (base: 1 articles with full text) ===
+  passed (IF caption match) : 1 (100.0%)
+  failed (no IF caption)    : 0 (0.0%)
+
+=== Final breakdown (base: 5 articles evaluated) ===
+  passed        : 1 (20.0%)
+  failed        : 0 (0.0%)
+  uninspectable : 4 (80.0%)
+
+Note: this filter only runs on the PMC open-access subset. Articles not in PMC, or in PMC without open full text, are reported as 'uninspectable' rather than dropped silently.
+
+Per-article report written to ./phase2_example/results.csv

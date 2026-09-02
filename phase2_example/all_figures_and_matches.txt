@@ -1,0 +1,25 @@
+PMID: 41803986
+PMCID: PMC13085594
+Total <fig> elements in article: 7
+IF_CAPTION_KEYWORDS checked: ['immunofluorescence', 'immunofluorescent', 'immuno-fluorescence', 'if staining', 'if image', 'if microscopy', 'confocal microscopy', 'confocal image', 'confocal laser scanning', 'dapi', 'hoechst', 'alexa fluor', 'fitc-conjugated', 'fitc conjugated', 'tritc', 'cy3', 'cy5', 'secondary antibody', 'immunostaining', 'immunolabeling', 'immunolabelling', 'co-localization', 'colocalization', 'fluorescently labeled', 'fluorescently labelled', 'fluorescence microscopy']
+
+[Fig1] Fig. 1 -- no match
+  caption text: Immune cell landscape in metastatic and non-metastatic TNBC patients. A-B UMAP showed 5 major immune cell clusters in metastatic and non-metastatic samples. C The expression of canonical marker genes which was used to determine major clusters. D UMAP of the 19 detailed immune cell subclusters. E-I Heatmap showing marker gene expression among immune cell subclusters
+
+[Fig2] Fig. 2 -- no match
+  caption text: Heterogeneity of B cell subsets in metastatic and non-metastatic TNBC patients. A The proportions of B cell clusters in different samples. B The cell type composition of B cell clusters in different samples. C UMAP showed 5 major B cell clusters in metastatic and non-metastatic samples. D The canonical marker genes of B cell clusters. E Violin plot showed the expression level of selected marker genes in each B cell cluster. F Heatmap of DEGs across B cell clusters
+
+[Fig3] Fig. 3 -- no match
+  caption text: Multi-omics analysis of TNBC brain metastasis. A Volcano plot of differentially expressed genes between brain metastatic group and non-metastatic group. B The pathway enrichment analysis of Kyoto Encyclopedia of Genes and Genomes (KEGG). C The pathway enrichment analysis of Gene Set Enrichment Analysis (GSEA). D The expression of canonical marker genes which was used to determine major B cell clusters. E Survival curves of OS with varying levels of cycling B cells infiltration. F Heatmap showing gene expression dynamics along pseudotime. G Pseudotime trajectory of B cells. H The differentiation state changes of B cells along the pseudotime trajectory. I Distribution of B cell subsets in the trajectory graph. J CD19 gene expression along the pseudotime trajectory
+
+[Fig4] Fig. 4 -- MATCH -> immunofluorescence
+  caption text: Enrichment of CD19 + Ki67 + B cells in TNBC and their clinical relevance. A Immunofluorescence imaging showing the overall tumor and high-resolution regions of interest, segmented into fine grids for precise spatial mapping and quantitative spot analysis. Scale bars: top, 625 μm; bottom, 50 μm. B Representative immunofluorescence staining of clinical TNBC samples from metastasis and non-metastasis groups. White arrows highlighted CD19 + Ki67 + B cells. Scale bars, 50 μm. C Quantification of CD19 + Ki67 + B cells as a proportion of total cells and their association with metastatic status and pathological T stage. D Heatmap of TNBC patients along with key clinical characteristics
+
+[Fig5] Fig. 5 -- MATCH -> immunofluorescence
+  caption text: The tumor-promoting activity of CD19 + Ki67 + B cells in the TNBC organoids. A Workflow of TNBC organoids co-cultured with Ki67 +/− B cells. B Sorting of CD19 + Ki67 +/− B cells via flow cytometry. C Proliferation test by EDU assays after co-cultured with Ki67 + or Ki67 − B cells; D Inverse circularity score of invasion ability via Ki67 +/− B cells co-culture; E Multiplex immunofluorescence staining images of metastasis-related molecules MMP-2 and E-cad. Scale bars = 50 μm
+
+[Fig6] Fig. 6 -- no match
+  caption text: Cell-cell communication analysis between Cycling B cells and cancer cells in TNBC. A UMAP visualization of cancer cells and normal cells derived from integrated single-cell RNA-seq datasets. B Cell-cell communication network illustrating the number of ligand-receptor interactions between cancer cells and distinct B-cell subsets. C Cell-cell communication network showing the relative interaction weights between cancer cells and different B-cell subsets. D Heatmap of outgoing and incoming signaling pathways across different cell populations. D Violin plots presenting the expression levels of NAMPT/ITGA5/ITGB1 across multiple cell populations. F Ligand-receptor communication analysis identifying the NAMPT/ITGA5/ITGB1 pathway between cycling B cells and cancer cells
+
+[Fig7] Fig. 7 -- MATCH -> immunofluorescence
+  caption text: Validation of NAMPT/ITGA5/ITGB1 signaling in TNBC. A-D Multiplex immunofluorescence staining images of TNBC organoids co-cultured with CD19 + Ki67 +/− B cells. Markers include NAMPT (pink), ITGA5 (red), and INSR (green). Scale bars: 100 μm. E Heatmap of TNBC patients along with key clinical characteristics. F OS curves of patients with different NAMPT expression in xiangya cohort
