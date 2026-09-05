@@ -12,7 +12,7 @@ Phase 2: linking to PMC and inspecting figure captions...
   efetch chunk size   : 100
   output CSV          : ./phase2_example/results.csv
   NCBI tool           : pubmed-if-filter
-  NCBI email          : flattsolange@gmail.com
+  NCBI email          : provided
   NCBI api key        : provided
   rate limit          : 10.0 req/s
 
