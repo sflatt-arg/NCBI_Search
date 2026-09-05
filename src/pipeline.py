@@ -9,7 +9,12 @@ from dataclasses import dataclass, field
 from typing import List, Optional
 
 from .eutils import EutilsClient
-from .filter_pmc import fetch_pmc_articles, find_matching_captions, link_pmids_to_pmcids
+from .filter_pmc import (
+    IF_CAPTION_KEYWORDS,
+    fetch_pmc_articles,
+    find_matching_captions,
+    link_pmids_to_pmcids,
+)
 from .search import SearchResult, phase1_search
 
 STATUS_PASSED = "passed"
@@ -121,6 +126,7 @@ def run_pipeline(
     retmax: int = 10000,
     elink_chunk_size: int = 200,
     efetch_chunk_size: int = 100,
+    if_keywords: Optional[List[str]] = None,
 ) -> PipelineResult:
     search_result = phase1_search(client, keywords, apply_if_prefilter=apply_if_prefilter, retmax=retmax)
 
@@ -148,7 +154,7 @@ def run_pipeline(
             )
             continue
 
-        matches = find_matching_captions(article_el)
+        matches = find_matching_captions(article_el, keywords=if_keywords or IF_CAPTION_KEYWORDS)
         if matches:
             matched_keywords = sorted({kw for m in matches for kw in m["keywords"]})
             sample_caption = str(matches[0]["caption"])[:300]

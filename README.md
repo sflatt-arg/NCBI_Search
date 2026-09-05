@@ -75,6 +75,48 @@ Output: a console summary (hit counts, PMC coverage, pass/fail/uninspectable
 breakdown) and a `results.csv` with one row per article:
 `pmid, pmcid, status, reason, matched_keywords, sample_caption`.
 
+## Streamlit app
+
+The same pipeline is also available as a web UI:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Each visitor supplies their **own** free NCBI email (required) and API key
+(optional) on the app's **Parameters** page — the app ships with no embedded
+credentials, and what you type is kept in your browser session only: never
+logged, never written to disk, and never included in a downloaded or saved
+file.
+
+Three pages: **Run** (keywords + go), **Parameters** (credentials, retmax,
+prefilter, batch sizes, editable IF caption keyword list), and **Results**
+(metrics, funnel and status charts, filterable table, per-article detail, CSV
+download, and a "Save this run" button that writes `results.csv`,
+`summary.json` and `params.json` under `runs/`).
+
+To deploy: push the repo to GitHub and point Streamlit Community Cloud at
+`streamlit_app.py`. There are no secrets to configure — credentials come from
+whoever is using the app.
+
+The CLI is unaffected: it still reads `.env` via `src/config.py`.
+
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+
+pytest                  # fast, no network (~2s)
+pytest --run-network    # also runs the live end-to-end test against NCBI
+```
+
+`pytest` covers the pipeline's `if_keywords` argument and the app's behaviour
+via Streamlit's `AppTest` — the credentials gate, form validation, error
+handling, the Results dashboard, and the guarantee that a saved run contains
+no email or API key. `--run-network` adds one test that walks the whole golden
+path against the live NCBI API; it reads `NCBI_EMAIL` from your `.env` and is
+skipped if that isn't set.
+
 ## Repo layout
 
 ```
@@ -85,6 +127,12 @@ src/
   filter_pmc.py   # Phase 2: ELink -> EFetch PMC XML -> caption match
   pipeline.py     # orchestrates both phases, builds per-article outcomes
   cli.py          # command-line entry point
+streamlit_app.py  # Streamlit entry point (st.navigation over the 3 pages)
+app_common.py     # session-state schema + shared helpers for the app
+app_pages/
+  run.py          # keywords + Run button
+  parameters.py   # credentials, search params, IF keyword list
+  results.py      # dashboard for the latest run
 .env.example
 requirements.txt
 ```
